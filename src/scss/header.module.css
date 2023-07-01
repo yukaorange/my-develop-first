@@ -1,0 +1,26 @@
+.header {
+  padding: var(--space-xs) 0 var(--space-xs);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.inner {
+  max-width: var(--maxVW);
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading h1 {
+  color: var(--gray);
+  text-shadow: 0px 0px 1px var(--white);
+}
+
+.heading.night h1 {
+  color: var(--white);
+  text-shadow: 0px 0px 1px var(--gray);
+}
+/*# sourceMappingURL=header.module.css.map */

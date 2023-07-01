@@ -1,0 +1,11 @@
+.buttonBox {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding-right: 10vw;
+  padding-bottom: 10vw;
+  display: flex;
+  margin-left: auto;
+  justify-content: flex-end;
+}
+/*# sourceMappingURL=buttonBox.module.css.map */

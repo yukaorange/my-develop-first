@@ -1,0 +1,15 @@
+.container {
+  max-width: min(80vw, 1540px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section {
+  margin-top: 10vw;
+  padding-top: var(--space-50);
+  padding-bottom: var(--space-50);
+}
+.section > * + * {
+  margin-top: var(--space-content);
+}
+/*# sourceMappingURL=container.module.css.map */

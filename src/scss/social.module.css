@@ -1,0 +1,21 @@
+.list {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.item {
+  font-size: 32px;
+  width: 40px;
+  aspect-ratio: 1/1;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+.item a {
+  color: var(--gray);
+}
+
+.night a {
+  color: var(--white);
+}
+/*# sourceMappingURL=social.module.css.map */
