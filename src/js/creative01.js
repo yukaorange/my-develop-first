@@ -42,12 +42,20 @@ export class Sketch {
     this.isPlaying = true;
     this.textures = [];
 
+    this.blockScrolling = false;
+    window.addEventListener("wheel", this.preventScroll.bind(this), {
+      passive: false,
+    });
+    window.addEventListener("touchmove", this.preventScroll.bind(this), {
+      passive: false,
+    });
+
     this.initiate(() => {
       this.addObjects();
       this.addCamera();
       this.addLight();
-      this.settings();
-      this.addControls();
+      // this.settings();
+      // this.addControls();
       this.mouseEvent();
       this.touchEvent();
       this.setupResize();
@@ -55,6 +63,12 @@ export class Sketch {
       this.play();
       this.render();
     });
+  }
+
+  preventScroll(e) {
+    if (this.blockScrolling) {
+      e.preventDefault();
+    }
   }
 
   /**
@@ -122,9 +136,11 @@ export class Sketch {
       this.textures[0].source.data.height / this.textures[0].source.data.width;
     this.material.uniforms.uXAspect.value = this.Xaspect / this.imageXAspect;
     this.material.uniforms.uYAspect.value = this.Yaspect / this.imageYAspect;
+
     this.camera.fov =
       2 * (180 / Math.PI) * Math.atan(this.height / (2 * this.dist));
-      let scrollY = window.scrollY - this.initialY;
+
+    let scrollY = window.scrollY - this.initialY;
 
     this.materials.forEach((m) => {
       m.uniforms.uXAspect.value = this.Xaspect / this.imageXAspect;
@@ -145,10 +161,8 @@ export class Sketch {
       i.mesh.material.uniforms.uQuadSize.value.y = bounds.height;
       i.mesh.material.uniforms.uTextureSize.value.x = bounds.width;
       i.mesh.material.uniforms.uTextureSize.value.y = bounds.height;
-      
     });
 
-    
     // this.plane.scale.x = this.width; //もとのplaneは１×１なので、全画面にしたいときはリサイズ時に引き伸ばす
     // this.plane.scale.y = this.height; //縦方向も同様
     this.camera.aspect = this.width / this.height;
@@ -239,36 +253,6 @@ export class Sketch {
     this.geometry = new THREE.PlaneGeometry(1, 1, 100, 100);
     this.plane = new THREE.Mesh(this.geometry, this.material);
 
-    this.tl = gsap.timeline();
-    this.tl
-      .to(this.material.uniforms.uCorners.value, {
-        x: 1,
-        duration: 1,
-      })
-      .to(
-        this.material.uniforms.uCorners.value,
-        {
-          y: 1,
-          duration: 1,
-        },
-        0.2
-      )
-      .to(
-        this.material.uniforms.uCorners.value,
-        {
-          z: 1,
-          duration: 1,
-        },
-        0.4
-      )
-      .to(
-        this.material.uniforms.uCorners.value,
-        {
-          w: 1,
-          duration: 1,
-        },
-        0.6
-      );
     // this.plane.position.x = 300;
     // this.plane.scale.set(300, 300, 1);
     // this.scene.add(this.plane);
@@ -279,13 +263,90 @@ export class Sketch {
       let bounds = img.getBoundingClientRect();
       let m = this.material.clone();
       this.materials.push(m);
-      let mesh = new THREE.Mesh(this.geometry, m);
       let texture = this.textures[i];
       texture.needsUpdate = true;
 
       m.uniforms.uTexture.value = texture;
       // m.uniforms.uProgressについて、クローン元のプロパティの値の変化はクローンには影響しない。
 
+      img.addEventListener("click", () => {
+        mesh.renderOrder = 1;
+        this.blockScrolling = true;
+        this.tl = gsap.timeline();
+        this.tl
+          .to(this.container, {
+            zIndex: 1,
+          })
+          .to(m.uniforms.uCorners.value, {
+            x: 1,
+            duration: 0.4,
+          })
+          .to(
+            m.uniforms.uCorners.value,
+            {
+              y: 1,
+              duration: 0.4,
+            },
+            0.2
+          )
+          .to(
+            m.uniforms.uCorners.value,
+            {
+              z: 1,
+              duration: 0.4,
+            },
+            0.4
+          )
+          .to(
+            m.uniforms.uCorners.value,
+            {
+              w: 1,
+              duration: 0.4,
+            },
+            0.6
+          );
+
+        this.container.addEventListener("click", () => {
+          mesh.renderOrder = 0;
+          this.blockScrolling = false;
+          this.tl = gsap.timeline();
+          this.tl
+            .to(this.container, {
+              zIndex: -1,
+            })
+            .to(m.uniforms.uCorners.value, {
+              x: 0,
+              duration: 0.4,
+            })
+            .to(
+              m.uniforms.uCorners.value,
+              {
+                y: 0,
+                duration: 0.4,
+              },
+              0.2
+            )
+            .to(
+              m.uniforms.uCorners.value,
+              {
+                z: 0,
+                duration: 0.4,
+              },
+              0.4
+            )
+            .to(
+              m.uniforms.uCorners.value,
+              {
+                w: 0,
+                duration: 0.4,
+              },
+              0.6
+            );
+        });
+      });
+
+      let mesh = new THREE.Mesh(this.geometry, m);
+      mesh.frustumCulled = false;
       this.scene.add(mesh);
 
       mesh.scale.set(bounds.width, bounds.height, 1);
@@ -354,9 +415,10 @@ export class Sketch {
     }
     const elapsedTime = this.clock.getElapsedTime();
     this.time = elapsedTime;
-    this.material.uniforms.time.value = this.time;
 
-    this.material.uniforms.uProgress.value = this.settings.progress;
+    // this.material.uniforms.time.value = this.time;
+
+    // this.material.uniforms.uProgress.value = this.settings.progress;
 
     this.setPositon();
 

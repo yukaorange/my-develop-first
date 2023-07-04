@@ -19,14 +19,15 @@ float PI = 3.1415926535897932384626433832795;
 void main() {
   vUv = uv;
 
-  float sine = sin(PI * uProgress);//uProgressは0~1の値を取る。sin(0)=0から始まり、sin(PI)=0に終わる。
+  // float sine = sin(PI * uProgress);//uProgressは0~1の値を取る。sin(0)=0から始まり、sin(PI)=0に終わる。
 
-  float waves = sine * 0.1 * sin(5. * length(uv) + 15. * uProgress);
+  // float waves = sine * 0.1 * sin(5. * length(uv) + 15. * uProgress);
 
   vec4 defaultState = modelMatrix * vec4(position, 1.0);
   vec4 fullScreenState = vec4(position, 1.0);
   fullScreenState.x *= uResolution.x;
   fullScreenState.y *= uResolution.y;
+  // fullScreenState.z += 40. * uCorners.x;
 
   // float cornersProgress = mix(uCorners.x, uCorners.y, uv.x);
   //uv.xは0~1の値を取るため、uCorners.xはuv.xが0の地点に影響する。uCorners.はuv.xが1の地点に影響する。uCorners.xが0～1に変化している間、uCorners.yはまだ0のまま。uv.xが1の点ではuCorners.yになる。
@@ -36,12 +37,14 @@ void main() {
   mix(uCorners.x, uCorners.z, uv.x), //
   uv.y//
   );
+  float sine = sin(PI * cornersProgress);//uProgressは0~1の値を取る。sin(0)=0から始まり、sin(PI)=0に終わる。
+  float waves = sine * 0.1 * sin(2. * length(uv) + 10. * cornersProgress);
 
-  // vec4 finalState = mix(defaultState, fullScreenState, cornersProgress);
-  vec4 finalState = mix(defaultState, fullScreenState, uProgress + waves);
+  vec4 finalState = mix(defaultState, fullScreenState, cornersProgress + waves);
+  // vec4 finalState = mix(defaultState, fullScreenState, uProgress + waves);
 
-  // vSize = mix(uQuadSize, uResolution, cornersProgress);//quadSizeはplaneのサイズ、uResolutionは画面のサイズ
-  vSize = mix(uQuadSize, uResolution, uProgress);//quadSizeはplaneのサイズ、uResolutionは画面のサイズ
+  vSize = mix(uQuadSize, uResolution, cornersProgress);//quadSizeはplaneのサイズ、uResolutionは画面のサイズ
+  // vSize = mix(uQuadSize, uResolution, uProgress);//quadSizeはplaneのサイズ、uResolutionは画面のサイズ
 
   // gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
   gl_Position = projectionMatrix * viewMatrix * finalState;

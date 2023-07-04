@@ -8,6 +8,7 @@ import Meta from "@/components/meta";
 import { useEffect, useRef } from "react";
 import { Sketch } from "@/js/creative01";
 import Image from "next/image";
+import Link from "next/link";
 
 import ButtonBox from "@/components/buttonBox";
 import styles from "@/scss/creative-section01.module.scss";

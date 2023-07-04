@@ -1,11 +1,10 @@
-@use "./modules/variables/variables";
-@use "./modules/mixin/mixin";
-
 .container {
   position: fixed;
   inset: 0;
   z-index: -1;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .background {
@@ -17,11 +16,12 @@
   background-position: center;
   background-size: cover;
   filter: grayscale(80) contrast(1.5) blur(3px);
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-  }
 }
+.background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+/*# sourceMappingURL=webGLsection03.module.css.map */

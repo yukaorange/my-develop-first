@@ -6,6 +6,9 @@
      -moz-user-select: none;
           user-select: none;
 }
+.container.active {
+  scroll-behavior: none;
+}
 
 .content {
   margin-bottom: 10vw;
@@ -17,10 +20,16 @@
   gap: clamp(50px, 4.9701789264vw + 32.1073558648px, 100px);
 }
 
+.card {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .card__thumbnail {
-  aspect-ratio: 16/9;
-  opacity: 0.1;
-  width: 50vw;
+  aspect-ratio: 3.3/3;
+  opacity: 0.01;
+  width: 20vw;
   border: 1px solid var(--white);
 }
 

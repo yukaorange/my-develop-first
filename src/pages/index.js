@@ -31,7 +31,7 @@ export default function Home() {
       category: "creative",
       page: "section01",
       title: "plactice01",
-      thumbnail: "comming.jpg",
+      thumbnail: "creative01.jpg",
     },
   ];
   const CSScreative = [
@@ -49,7 +49,7 @@ export default function Home() {
         {/* webgl school */}
         <section>
           <h2 className={styles.header}>
-            <span className={styles.header__text}>Plactice</span>
+            <span className={styles.header__text}>webGL</span>
           </h2>
           <div className={styles.body}>
             <div className={styles.grid}>
@@ -87,7 +87,7 @@ export default function Home() {
         {/* css */}
         <section>
           <h2 className={styles.header}>
-            <span className={styles.header__text}>CSScreative</span>
+            <span className={styles.header__text}>CSS</span>
           </h2>
           <div className={styles.body}>
             <div className={styles.grid}>

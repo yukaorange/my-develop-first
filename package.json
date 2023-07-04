@@ -19,6 +19,7 @@
     "date-fns": "^2.29.3",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.1",
+    "framer-motion": "^10.12.18",
     "gsap": "^3.11.5",
     "html-react-parser": "^3.0.12",
     "html-to-text": "^9.0.4",

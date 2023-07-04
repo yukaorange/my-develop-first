@@ -6,6 +6,9 @@
   z-index: -1;
   inset: 0;
   user-select: none;
+  &.active{
+    scroll-behavior: none;
+  }
 }
 
 .content {
@@ -19,16 +22,17 @@
 }
 
 .card {
+  width: fit-content;
 }
 
 .card__inner {
 }
 
 .card__thumbnail {
-  aspect-ratio: 16/9;
+  aspect-ratio: 3.3/3;
   // max-width: mixin.myClamp(300, 600);
-  opacity: 0.1;
-  width: 50vw;
+  opacity: 0.01;
+  width: 25vw;
   border: 1px solid var(--white);
 }
 
