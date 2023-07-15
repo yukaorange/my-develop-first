@@ -6,7 +6,7 @@
   z-index: -1;
   inset: 0;
   user-select: none;
-  &.active{
+  &.active {
     scroll-behavior: none;
   }
 }
@@ -42,4 +42,11 @@
 
 .card__text {
   color: var(--white);
+}
+
+@include mixin.medium {
+  //タブレット
+  .card__thumbnail {
+    width: 40vw;
+  }
 }
