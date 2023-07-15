@@ -10,7 +10,7 @@ import styles from "@/scss/webGLsection03.module.scss";
 import pageOGP from "images/section03.jpg";
 
 export default function Section03() {
-  const images = ["/earthmap.jpg"];
+  const images = ["/textures/water.jpg"];
   const containerRef = useRef();
   const { nightMode, setNightMode } = useContext(NightModeContext);
 

@@ -268,7 +268,7 @@ export class Sketch {
     // this.mark1.position.set(0, -2, 0);
     // this.group.add(this.mark1);
 
-    this.group.position.set(0, -5, 0);
+    this.group.position.set(0, 0, 0);
     // this.group.position.set(0, 0, 0);
     this.scene.add(this.group);
   }

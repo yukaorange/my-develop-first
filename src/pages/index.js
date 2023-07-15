@@ -22,8 +22,8 @@ export default function Home() {
     {
       category: "webglSchool",
       page: "section03",
-      title: "neongenesis?",
-      thumbnail: "mark6.jpg",
+      title: "chase Longinus",
+      thumbnail: "chase-longinus.jpg",
     },
   ];
   const creativeCoding = [
