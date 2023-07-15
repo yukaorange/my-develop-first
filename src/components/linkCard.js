@@ -6,7 +6,7 @@ export default function LinkCard({ category,page, thumbnail, title }) {
   return (
     <Link href={`/${category}/${page}`} className={styles.card}>
       <div className={styles.thumbnail}>
-        <Image src={`/${thumbnail}`} width={600} height={400} alt={title} />
+        <Image src={`/thumbnails/${thumbnail}`} width={600} height={400} alt={title} />
       </div>
       <div className={styles.body}>
         <h3 className={styles.title}>{title}</h3>

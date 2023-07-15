@@ -9,7 +9,7 @@ import styles from "@/scss/webGLsection01.module.scss";
 import cube from "images/section01.jpg";
 
 export default function Section01() {
-  const images = ["/square.jpg"];
+  const images = ["/textures/square.jpg"];
   const containerRef = useRef();
 
   useEffect(() => {

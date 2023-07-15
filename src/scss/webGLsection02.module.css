@@ -22,8 +22,8 @@
   background-repeat: repeat;
   background-position: center;
   background-size: cover;
-  -webkit-mask-image: url("/mask-image.png");
-          mask-image: url("/mask-image.png");
+  -webkit-mask-image: url("/mask/mask-image.png");
+          mask-image: url("/mask/mask-image.png");
   -webkit-mask-position: center 200%;
           mask-position: center 200%;
   -webkit-mask-size: 200% 200%;
@@ -54,14 +54,14 @@
 }
 
 .background01 {
-  background-image: url("/nathan-night.webp");
+  background-image: url("/night/nathan-night.webp");
 }
 
 .background02 {
-  background-image: url("/negic-night.webp");
+  background-image: url("/night/negic-night.webp");
 }
 
 .background03 {
-  background-image: url("/jason-night.webp");
+  background-image: url("/night/jason-night.webp");
 }
 /*# sourceMappingURL=webGLsection02.module.css.map */

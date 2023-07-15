@@ -10,7 +10,7 @@ import styles from "@/scss/webGLsection02.module.scss";
 import pageOGP from "images/section02.jpg";
 
 export default function Section02() {
-  const images = ["/white-texture.jpg"];
+  const images = ["/textures/white-texture.jpg"];
   const containerRef = useRef();
   const [activeBG, setActiveBG] = useState(2);
   const [beforeBG, setBeforeBG] = useState(1);
