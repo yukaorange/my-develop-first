@@ -38,7 +38,7 @@ void main() {
   uv.y//
   );
   float sine = sin(PI * cornersProgress);//uProgressは0~1の値を取る。sin(0)=0から始まり、sin(PI)=0に終わる。
-  float waves = sine * 0.1 * sin(2. * length(uv) + 10. * cornersProgress);
+  float waves = sine * 0.1 * sin(15. * length(uv) + 10. * cornersProgress);
 
   vec4 finalState = mix(defaultState, fullScreenState, cornersProgress + waves);
   // vec4 finalState = mix(defaultState, fullScreenState, uProgress + waves);

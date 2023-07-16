@@ -42,14 +42,6 @@ export class Sketch {
     this.isPlaying = true;
     this.textures = [];
 
-    this.blockScrolling = false;
-    window.addEventListener("wheel", this.preventScroll.bind(this), {
-      passive: false,
-    });
-    window.addEventListener("touchmove", this.preventScroll.bind(this), {
-      passive: false,
-    });
-
     this.initiate(() => {
       this.addObjects();
       this.addCamera();
@@ -63,12 +55,6 @@ export class Sketch {
       this.play();
       this.render();
     });
-  }
-
-  preventScroll(e) {
-    if (this.blockScrolling) {
-      e.preventDefault();
-    }
   }
 
   /**
@@ -145,8 +131,8 @@ export class Sketch {
     this.materials.forEach((m) => {
       m.uniforms.uXAspect.value = this.Xaspect / this.imageXAspect;
       m.uniforms.uYAspect.value = this.Yaspect / this.imageYAspect;
-      m.uniforms.uResolution.value.x = this.width;
-      m.uniforms.uResolution.value.y = this.height;
+      m.uniforms.uResolution.value.x = this.width * 0.9;
+      m.uniforms.uResolution.value.y = this.height * 0.9;
     });
 
     this.imageStore.forEach((i) => {
@@ -271,7 +257,6 @@ export class Sketch {
 
       img.addEventListener("click", () => {
         mesh.renderOrder = 1;
-        this.blockScrolling = true;
         this.tl = gsap.timeline();
         this.tl
           .to(this.container, {
@@ -308,7 +293,6 @@ export class Sketch {
 
         this.container.addEventListener("click", () => {
           mesh.renderOrder = 0;
-          this.blockScrolling = false;
           this.tl = gsap.timeline();
           this.tl
             .to(this.container, {

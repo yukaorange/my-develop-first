@@ -10,6 +10,8 @@ import { Sketch } from "@/js/creative01";
 import Image from "next/image";
 import Link from "next/link";
 
+import pageOGP from "images/creative01.jpg";
+
 import ButtonBox from "@/components/buttonBox";
 import styles from "@/scss/creative-section01.module.scss";
 import irust01 from "public/girls/girls01.png";
@@ -116,7 +118,11 @@ export default function Section01() {
 
   return (
     <>
-      <Meta />
+      <Meta
+        pageImg={pageOGP.src}
+        pageImgH={pageOGP.height}
+        pageImgW={pageOGP.width}
+      />
       {/* webGL */}
       <div id="container" ref={containerRef} className={styles.container}>
         <div id="slider"></div>
