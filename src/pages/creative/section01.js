@@ -10,7 +10,7 @@ import { Sketch } from "@/js/creative01";
 import Image from "next/image";
 import Link from "next/link";
 
-import pageOGP from "images/creative01.jpg";
+import pageOGP from "images/girls01.png";
 
 import ButtonBox from "@/components/buttonBox";
 import styles from "@/scss/creative-section01.module.scss";
@@ -112,6 +112,7 @@ export default function Section01() {
       dom: containerRef.current,
       images: imageRefs.current,
     });
+    console.log(pageOGP.src)
   }, []);
 
   useSmoothScroll();
@@ -119,9 +120,9 @@ export default function Section01() {
   return (
     <>
       <Meta
-        // pageImg={pageOGP.src}
-        // pageImgW={pageOGP.width}
-        // pageImgH={pageOGP.height}
+        pageImg={pageOGP.src}
+        pageImgW={pageOGP.width}
+        pageImgH={pageOGP.height}
       />
       {/* webGL */}
       <div id="container" ref={containerRef} className={styles.container}>
