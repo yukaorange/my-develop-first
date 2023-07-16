@@ -119,9 +119,9 @@ export default function Section01() {
   return (
     <>
       <Meta
-        pageImg={pageOGP.src}
-        pageImgH={pageOGP.height}
-        pageImgW={pageOGP.width}
+        // pageImg={pageOGP.src}
+        // pageImgW={pageOGP.width}
+        // pageImgH={pageOGP.height}
       />
       {/* webGL */}
       <div id="container" ref={containerRef} className={styles.container}>
