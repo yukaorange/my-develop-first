@@ -10,7 +10,7 @@ import { Sketch } from "@/js/creative01";
 import Image from "next/image";
 import Link from "next/link";
 
-import pageOGP from "images/creative01.jpg";
+import pageOGP from "images/ogp2.jpg";
 
 import ButtonBox from "@/components/buttonBox";
 
@@ -113,7 +113,6 @@ export default function Section01() {
       dom: containerRef.current,
       images: imageRefs.current,
     });
-    console.log(pageOGP.src, pageOGP.width, pageOGP.height)
   }, []);
 
   useSmoothScroll();
