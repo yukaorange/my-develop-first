@@ -23,9 +23,9 @@ export default function Section01() {
         <div id="slider" data-images={images}></div>
       </div>
       {/* 戻るボタンを設置 */}
-        <ButtonBox>
-          <BackButton />
-        </ButtonBox>
+      <ButtonBox>
+        <BackButton />
+      </ButtonBox>
     </>
   );
 }

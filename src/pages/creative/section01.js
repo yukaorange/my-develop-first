@@ -10,9 +10,10 @@ import { Sketch } from "@/js/creative01";
 import Image from "next/image";
 import Link from "next/link";
 
-import pageOGP from "images/girls01.png";
+import pageOGP from "images/creative01.jpg";
 
 import ButtonBox from "@/components/buttonBox";
+
 import styles from "@/scss/creative-section01.module.scss";
 import irust01 from "public/girls/girls01.png";
 import irust02 from "public/girls/girls02.png";
@@ -112,7 +113,7 @@ export default function Section01() {
       dom: containerRef.current,
       images: imageRefs.current,
     });
-    console.log(pageOGP.src)
+    console.log(pageOGP.src, pageOGP.width, pageOGP.height)
   }, []);
 
   useSmoothScroll();
