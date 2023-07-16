@@ -1,8 +1,8 @@
 import { gsap } from "gsap";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import vertexShader from "./shader/vertex.glsl";
-import fragmentShader from "./shader/fragment.glsl";
+import vertexShader from "./shader01/vertex.glsl";
+import fragmentShader from "./shader01/fragment.glsl";
 import * as dat from "lil-gui";
 import { TextureLoader } from "three";
 
