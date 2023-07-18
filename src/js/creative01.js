@@ -93,19 +93,21 @@ export class Sketch {
     this.resizeTimeout = null;
 
     window.addEventListener("resize", () => {
-      clearTimeout(this.resizeTimeout);
-      this.resizeTimeout = setTimeout(() => {
-        const newWidth = window.innerWidth;
-        const widthDifference = Math.abs(this.currentWidth - newWidth);
+      this.resize();
 
-        if (widthDifference <= 1) {
-          // console.log(this.currentWidth, "リサイズなし");
-          return;
-        }
-        this.currentWidth = newWidth;
-        // console.log(this.currentWidth, "リサイズ検知");
-        this.resize();
-      }, 10);
+      // clearTimeout(this.resizeTimeout);
+      // this.resizeTimeout = setTimeout(() => {
+      //   const newWidth = window.innerWidth;
+      //   const widthDifference = Math.abs(this.currentWidth - newWidth);
+
+      //   if (widthDifference <= 1) {
+      //     // console.log(this.currentWidth, "リサイズなし");
+      //     return;
+      //   }
+      //   this.currentWidth = newWidth;
+      //   // console.log(this.currentWidth, "リサイズ検知");
+      //   this.resize();
+      // }, 10);
     });
   }
   /**
